@@ -45,7 +45,18 @@ const data = [
 
 export default function KeyFeature() {
   return (
-   <h1>Key Feature</h1>
+   <section sx={{
+     variant:"section.KeyFeature"
+   }}id='feature'>
+     <Container>
+       <SectionHeader slogan='Whats the function' title="Meet the feature of our product"></SectionHeader>
+      <Grid sx={styles.grid}>
+        {data.map((item, i) => (
+          <FeatureCardColumn  key={item.id} title={item.title} src={item.imgSrc} alt={item.altText} text={item.text}/>
+        ))}
+      </Grid>
+     </Container>
+   </section>
   );
 }
 
