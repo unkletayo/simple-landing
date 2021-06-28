@@ -58,7 +58,7 @@ export default function ServiceSection() {
           </Box>
         </Box>
         <Box sx={styles.contentBox}>
-          <TextFeature subTitle={data.subTitle} title={data.title}/>
+          <TextFeature subTitle={data.subTitle} title={data.title}/> 
           <Grid sx={styles.grid}>
             {data.features.map((feature) => (
               <Box sx={styles.card} key={feature.id}>
@@ -68,7 +68,7 @@ export default function ServiceSection() {
                   <Text sx={styles.wrapper.subTitle}>{feature.text}</Text>
                 </Box>
               </Box>
-            ))}
+            ))}``
           </Grid>
         </Box>
       </Container>
