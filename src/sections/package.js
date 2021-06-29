@@ -1,7 +1,7 @@
+import React, { useState } from 'react';
 /** @jsx jsx */
 import { jsx, Container, Box, Flex } from 'theme-ui';
 import { keyframes } from '@emotion/core';
-import React, { useState } from 'react';
 import Carousel from 'react-multi-carousel';
 import PriceCard from 'components/price-card';
 import ButtonGroup from 'components/button-group';
@@ -241,6 +241,23 @@ const responsive = {
 
 export default function Package() {
   const { monthly, annual } = packages;
+  const [plan, setPlan] = useState({
+    active: 'monthly',
+    pricingPlan: monthly
+  })
+
+  const handlePricingPlan = (plan) => {
+    plan === 'annual'
+      ? setPlan({
+          active: 'annual',
+          pricingPlan: annual,
+        })
+      : setPlan({
+          active: 'monthly',
+          pricingPlan: monthly,
+        });
+  }
+
 
   const sliderParams = {
     additionalTransfrom: 0,
@@ -266,7 +283,35 @@ export default function Package() {
   };
 
   return (
-    <h1>Package</h1>
+    <section
+      id="pricing"
+      sx={{
+        variant: 'section.pricing',
+      }}
+    >
+      <SectionHeader slogan="Pricing Plan" title="Choose your pricing plan" />
+
+      <Flex sx={styles.buttonGroup}>
+        <Box sx={styles.buttonGroupInner}>
+          <button className={plan.active ==='monthly' ? 'active' : ''} type='button' aria-label='Monthly'
+          onClick={() => handlePricingPlan('monthly')}
+          >Monthly Plan</button>
+
+        <button className={plan.active ==='annual' ? 'active' : ''} type='button' aria-label='Annual'
+          onClick={() => handlePricingPlan('annual')}
+          >Annual Plan</button>
+        </Box>
+      </Flex>
+      <Box sx={styles.pricingwrapper} className='pricing__wrapper'>
+      <Carousel {...sliderParams}>
+      {plan.pricingPlan.map(data => (
+        <Box sx={styles.pricingItem} key={data.id}>
+        <PriceCard data={data}/>
+        </Box>
+      ))}
+      </Carousel>
+      </Box>
+    </section>
   );
 }
 
