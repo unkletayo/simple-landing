@@ -1,11 +1,8 @@
-## Getting Started
+# Contact-Keeper
 
-Install the dependencies and run the development server
+Simple Landing Page for a fictional Startup
 
-```bash
-npm install
-npm run dev
-# or
-yarn
-yarn dev
-```
+# Demo
+![Demo](./demo.gif)
+
+[View Live](https://contact-keeper-webapp.herokuapp.com/register)
