@@ -6,7 +6,25 @@ import FooterLogo from 'assets/logo.svg';
 
 export default function Footer() {
   return (
-    <h1>Footer</h1>
+    <footer sx={styles.footer}>
+      <Container>
+        <Box sx={styles.footer.footerBottomArea}>
+          <Link path='/'>
+            <Image src={FooterLogo} alt='logo'/>
+          </Link>
+            <Box sx={styles.footer.menus}>
+              <nav>
+                {data.menuItem.map((item,i) => (
+                  <Link key={i} path={item.path} label={item.label} sx={styles.footer.link}></Link>
+                ))}
+              </nav>
+            </Box>
+            <Text sx={styles.footer.copyright}>
+               &copy; Copyright by {new Date().getFullYear()} Startup
+            </Text>
+        </Box>
+      </Container>
+    </footer>
   );
 }
 

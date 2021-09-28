@@ -38,9 +38,11 @@ export default function WorkFlow() {
   return (
     <section sx={styles.workflow}>
       <Container>
-        <SectionHeader slogan='Whats the function'
-          title='Meet the feature of our product'
-        isWhite/>
+        <SectionHeader
+          slogan="Whats the function"
+          title="Meet the feature of our product"
+          isWhite
+        />
 
         <Grid sx={styles.grid}>
           {data.map((item) => (

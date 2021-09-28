@@ -54,6 +54,7 @@ export default function MobileDrawer() {
               smooth={true}
               offset={-70}
               duration={500}
+              onClick={() => setIsDrawerOpen((prevState) => !prevState)}
               key={i}
               >{menuItem.label}</Link>
             ))}

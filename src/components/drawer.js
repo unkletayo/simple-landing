@@ -34,11 +34,11 @@ export default function Drawer({
             {closeButton}
           </Box>
         )}
-        <Box sx={drawerStyle}>{children}</Box>
+        <Box  sx={drawerStyle}>{children}</Box>
       </RcDrawer>
-      <Box className='drawer__handler' style={{
+      <Box onClick={toggleHandler} className='drawer__handler' style={{
         display: 'inline-bock'
-      }} onClick={toggleHandler}>{drawerHandler}</Box>
+      }}>{drawerHandler}</Box>
     </Fragment>
   );
 }
